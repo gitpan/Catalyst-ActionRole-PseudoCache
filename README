@@ -1,0 +1,55 @@
+NAME
+    Catalyst::ActionRole::PseudoCache - Super simple caching for Catalyst
+    actions
+
+VERSION
+    version 0.093030
+
+SYNOPSIS
+     package MyApp::Controller::Root;
+    our $VERSION = '0.093030';
+
+
+
+     use Moose;
+     BEGIN { extends 'Catalyst::Controller::ActionRole' };
+
+     sub all_js :Local :Does(PseudoCache) PCUrl(/static/js/all.js) {
+        my ($self, $c) = @_;
+        # Long running action to be cached
+     }
+
+DESCRIPTION
+    This module was originally made to take the output of
+    Catalyst::View::JavaScript::Minifier::XS and store it in a file so that
+    after the server booted we would not need to generate it again and could
+    let the static web server serve up the static file. Obviously it can be
+    used for much more than javascript, but it's mostly made with large,
+    purely javascript sites in mind.
+
+ATTRIBUTES
+  PCUrl
+    Required.
+
+    After the action runs once it will redirect to $PCUrl.
+
+  PCPath
+    When the action gets run the first time it will write it's output to
+    $PCPath.
+
+    Defaults to "$c-"path_to('root') . $PCUrl>
+
+    So using the example given above for the "all_js" action, the path will
+    be
+
+     $MyAppLocation/root/static/js/all.js
+
+AUTHOR
+      Arthur Axel "fREW" Schmidt <frioux+cpan@gmail.com>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2009 by Arthur Axel "fREW" Schmidt.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+

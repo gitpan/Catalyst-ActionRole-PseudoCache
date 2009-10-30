@@ -1,0 +1,32 @@
+{
+   "resources" : {
+      "repository" : "http://github.com/frioux/Catalyst-ActionRole-PseudoCache"
+   },
+   "generated_by" : "Dist::Zilla version 1.093010",
+   "meta-spec" : {
+      "version" : 1.4,
+      "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html"
+   },
+   "version" : "0.093030",
+   "name" : "Catalyst-ActionRole-PseudoCache",
+   "author" : [
+      "Arthur Axel \"fREW\" Schmidt <frioux+cpan@gmail.com>"
+   ],
+   "license" : "perl",
+   "build_requires" : {
+      "Test::More" : "0.88",
+      "FindBin" : "0",
+      "Test::WWW::Mechanize::Catalyst" : "0",
+      "Catalyst::Test" : "0"
+   },
+   "requires" : {
+      "parent" : "0",
+      "Catalyst::Plugin::Static::Simple" : "0",
+      "autodie" : "0",
+      "File::Spec" : "0",
+      "Catalyst::Runtime" : "5.80013",
+      "Catalyst::Controller::ActionRole" : "0.12"
+   },
+   "abstract" : "Super simple caching for Catalyst actions"
+}
+
