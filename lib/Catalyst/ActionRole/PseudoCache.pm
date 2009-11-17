@@ -1,5 +1,5 @@
 package Catalyst::ActionRole::PseudoCache;
-our $VERSION = '0.093050';
+our $VERSION = '0.093200';
 
 
 
@@ -93,12 +93,12 @@ Catalyst::ActionRole::PseudoCache - Super simple caching for Catalyst actions
 
 =head1 VERSION
 
-version 0.093050
+version 0.093200
 
 =head1 SYNOPSIS
 
  package MyApp::Controller::Root;
-our $VERSION = '0.093050';
+our $VERSION = '0.093200';
 
 
 
