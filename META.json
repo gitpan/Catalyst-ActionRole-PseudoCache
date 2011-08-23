@@ -1,32 +1,48 @@
 {
-   "resources" : {
-      "repository" : "http://github.com/frioux/Catalyst-ActionRole-PseudoCache"
-   },
-   "generated_by" : "Dist::Zilla version 1.093180",
-   "meta-spec" : {
-      "version" : 1.4,
-      "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html"
-   },
-   "version" : "0.093200",
-   "name" : "Catalyst-ActionRole-PseudoCache",
+   "abstract" : "Super simple caching for Catalyst actions",
    "author" : [
       "Arthur Axel \"fREW\" Schmidt <frioux+cpan@gmail.com>"
    ],
-   "license" : "perl",
-   "build_requires" : {
-      "Test::More" : "0.88",
-      "FindBin" : "0",
-      "Test::WWW::Mechanize::Catalyst" : "0",
-      "Catalyst::Test" : "0"
+   "dynamic_config" : 0,
+   "generated_by" : "Dist::Zilla version 4.300000, CPAN::Meta::Converter version 2.112150",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
    },
-   "requires" : {
-      "parent" : "0",
-      "Catalyst::Plugin::Static::Simple" : "0",
-      "autodie" : "0",
-      "File::Spec" : "0",
-      "Catalyst::Runtime" : "5.80013",
-      "Catalyst::Controller::ActionRole" : "0.12"
+   "name" : "Catalyst-ActionRole-PseudoCache",
+   "prereqs" : {
+      "configure" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "6.30"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Catalyst::Controller::ActionRole" : "0.12",
+            "Catalyst::Plugin::Cache" : 0,
+            "Catalyst::Plugin::Static::Simple" : 0,
+            "Catalyst::Runtime" : "5.80013",
+            "Catalyst::Test" : 0,
+            "File::Spec" : 0,
+            "FindBin" : 0,
+            "Test::More" : "0.88",
+            "Test::WWW::Mechanize::Catalyst" : 0,
+            "autodie" : 0,
+            "parent" : 0
+         }
+      }
    },
-   "abstract" : "Super simple caching for Catalyst actions"
+   "release_status" : "stable",
+   "resources" : {
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/frioux/Catalyst-ActionRole-PseudoCache.git",
+         "web" : "http://github.com/frioux/Catalyst-ActionRole-PseudoCache"
+      }
+   },
+   "version" : "1.000000"
 }
 

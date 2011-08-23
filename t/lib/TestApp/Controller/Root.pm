@@ -1,7 +1,4 @@
 package TestApp::Controller::Root;
-our $VERSION = '0.093200';
-
-
 
 use Moose;
 BEGIN { extends 'Catalyst::Controller::ActionRole' };

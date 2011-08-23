@@ -3,20 +3,24 @@ NAME
     actions
 
 VERSION
-    version 0.093200
+    version 1.000000
 
 SYNOPSIS
      package MyApp::Controller::Root;
-    our $VERSION = '0.093200';
-
-
 
      use Moose;
      BEGIN { extends 'Catalyst::Controller::ActionRole' };
 
-     sub all_js :Local :Does(PseudoCache) PCUrl(/static/js/all.js) {
-        my ($self, $c) = @_;
-        # Long running action to be cached
+     # used with Catalyst::Plugin::Cache
+     sub cache_js :Local Does(PseudoCache) PCTrueCache(1) {
+       my ($self, $c) = @_;
+       # Long running action to be cached
+     }
+
+     # used with Catalyst::Plugin::Cache and the optional key attr
+     sub cache_with_key :Local Does(PseudoCache) PCTrueCache(1) PCKey('rememberme'){
+       my ($self, $c) = @_;
+       # Long running action to be cached
      }
 
 DESCRIPTION
@@ -29,8 +33,22 @@ DESCRIPTION
     action when the server is run in development mode.
 
 ATTRIBUTES
+  PCTrueCache
+    Setting PCTrueCache will use Catalyst::Plugin::Cache and allow a real
+    cache backend to do the work. After version 2 of this module this will
+    no longer need to be set and the old mode of this plugin will be removed
+    entirely.
+
+  PCKey
+    PCKey is an optional way of providing a different key for the cache
+    backend. The default key is "Controller::Name/action".
+
+    The two attributes below are DEPRECATED and provided for back compat
+    only. They might disappear in the future. Using "PCTrueCache" and
+    Catalyst::Plugin::Cache is highly recommended.
+
   PCUrl
-    Required.
+    Required when not using "PCTrueCache".
 
     After the action runs once it will redirect to $PCUrl.
 
@@ -38,18 +56,21 @@ ATTRIBUTES
     When the action gets run the first time it will write it's output to
     $PCPath.
 
-    Defaults to "$c-"path_to('root') . $PCUrl>
+    Defaults to "$c->path_to('root') . $PCUrl"
 
     So using the example given above for the "all_js" action, the path will
     be
 
      $MyAppLocation/root/static/js/all.js
 
+SEE ALSO
+    Catalyst::Plugin::Cache
+
 AUTHOR
-      Arthur Axel "fREW" Schmidt <frioux+cpan@gmail.com>
+    Arthur Axel "fREW" Schmidt <frioux+cpan@gmail.com>
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2009 by Arthur Axel "fREW" Schmidt.
+    This software is copyright (c) 2011 by Arthur Axel "fREW" Schmidt.
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.

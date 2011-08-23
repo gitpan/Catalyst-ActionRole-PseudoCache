@@ -1,7 +1,4 @@
 package TestApp;
-our $VERSION = '0.093200';
-
-
 
 use strict;
 use warnings;
