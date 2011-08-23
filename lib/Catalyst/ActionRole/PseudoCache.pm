@@ -1,6 +1,6 @@
 package Catalyst::ActionRole::PseudoCache;
 {
-  $Catalyst::ActionRole::PseudoCache::VERSION = '1.000000';
+  $Catalyst::ActionRole::PseudoCache::VERSION = '1.000001';
 }
 
 # ABSTRACT: Super simple caching for Catalyst actions
@@ -156,7 +156,7 @@ Catalyst::ActionRole::PseudoCache - Super simple caching for Catalyst actions
 
 =head1 VERSION
 
-version 1.000000
+version 1.000001
 
 =head1 SYNOPSIS
 
@@ -219,6 +219,11 @@ Defaults to C<< $c->path_to('root') . $PCUrl >>
 So using the example given above for the C<all_js> action, the path will be
 
  $MyAppLocation/root/static/js/all.js
+
+=head1 THANKS
+
+Thanks to Geoffrey Darling for writing all the code for the modern true cache
+mode
 
 =head1 SEE ALSO
 

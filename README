@@ -3,7 +3,7 @@ NAME
     actions
 
 VERSION
-    version 1.000000
+    version 1.000001
 
 SYNOPSIS
      package MyApp::Controller::Root;
@@ -62,6 +62,10 @@ ATTRIBUTES
     be
 
      $MyAppLocation/root/static/js/all.js
+
+THANKS
+    Thanks to Geoffrey Darling for writing all the code for the modern true
+    cache mode
 
 SEE ALSO
     Catalyst::Plugin::Cache
