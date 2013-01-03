@@ -26,4 +26,4 @@ requires:
   parent: 0
 resources:
   repository: git://github.com/frioux/Catalyst-ActionRole-PseudoCache.git
-version: 1.000002
+version: 1.000003

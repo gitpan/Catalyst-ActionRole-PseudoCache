@@ -1,6 +1,6 @@
 package Catalyst::ActionRole::PseudoCache;
 {
-  $Catalyst::ActionRole::PseudoCache::VERSION = '1.000002';
+  $Catalyst::ActionRole::PseudoCache::VERSION = '1.000003';
 }
 
 # ABSTRACT: Super simple caching for Catalyst actions
@@ -116,12 +116,12 @@ sub _true_cache {
 
    my $cache = $c->cache;
 
-   my $body;
-   unless ($body = $cache->get($self->key)){
+   if (my $body = $cache->get($self->key)){
+      $c->response->body($body);
+   } else {
       $self->$orig($controller, $c, @rest);
       $cache->set($self->key, $c->response->body);
    }
-   $c->response->body($body);
 }
 
 sub _pseudo_cache {
@@ -156,7 +156,7 @@ Catalyst::ActionRole::PseudoCache - Super simple caching for Catalyst actions
 
 =head1 VERSION
 
-version 1.000002
+version 1.000003
 
 =head1 SYNOPSIS
 
@@ -235,7 +235,7 @@ Arthur Axel "fREW" Schmidt <frioux+cpan@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Arthur Axel "fREW" Schmidt.
+This software is copyright (c) 2013 by Arthur Axel "fREW" Schmidt.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
